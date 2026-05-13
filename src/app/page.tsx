@@ -92,8 +92,14 @@ function Metrics() {
     <AnimatedSection className="mx-auto max-w-7xl px-5 sm:px-8">
       <div className="grid gap-3 rounded-lg bg-lime p-3 text-ink sm:grid-cols-2 lg:grid-cols-4">
         {metrics.map((metric) => (
-          <div key={metric.label} className="rounded-md border border-ink/10 bg-ink/[0.06] p-5">
-            <p className={`font-display leading-none ${metric.value.length > 5 ? "text-[clamp(3rem,3.7vw,4.25rem)]" : "text-[clamp(4.5rem,21vw,6rem)] lg:text-7xl"}`}>
+          <div key={metric.label} className="rounded-md border border-ink/10 bg-ink/[0.06] p-5 [container-type:inline-size]">
+            <p
+              className={`max-w-full overflow-hidden font-display leading-none ${
+                metric.value.length > 5
+                  ? "whitespace-nowrap text-[clamp(2.45rem,16cqw,4.1rem)]"
+                  : "text-[clamp(4.5rem,21vw,6rem)] lg:text-7xl"
+              }`}
+            >
               {metric.value}
             </p>
             <p className="mt-1 text-lg font-black">{metric.label}</p>
