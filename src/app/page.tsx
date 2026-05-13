@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { AnimatedSection } from "@/components/animated-section";
+import { HoverLift, Reveal, Stagger, StaggerItem } from "@/components/motion-system";
 import { ProjectCard } from "@/components/project-card";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -40,48 +41,58 @@ function Hero() {
         BUILDER PRODUCT MARKETPLACE AI
       </div>
       <div className="relative z-10 grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
-        <div>
-          <p className="mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-lime/35 bg-lime/10 px-3 py-2 text-xs font-bold text-lime sm:px-4 sm:text-sm">
-            <Sparkles className="size-4" />
-            AI Product Founder &amp; Software Engineer
-          </p>
-          <h1 className="max-w-4xl text-balance font-display text-[clamp(4rem,19vw,5.7rem)] leading-[0.84] tracking-normal text-lime sm:text-[8.5rem] lg:text-[11rem]">
-            Alexandru Mihacea
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-7 text-white/72 sm:mt-7 sm:text-2xl sm:leading-8">
-            I build focused software businesses across AI, vertical marketplaces, logistics, and high-stakes engineering.
-          </p>
-          <div className="mt-9 flex flex-wrap gap-3">
-            <Link
-              href="#projects"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-lime px-5 py-3 text-sm font-black text-ink transition hover:scale-[1.02] sm:w-auto"
-            >
-              View projects
-              <ArrowUpRight className="size-4" />
-            </Link>
-            <Link
-              href="#contact"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-white/15 px-5 py-3 text-sm font-bold text-white transition hover:border-lime hover:text-lime sm:w-auto"
-            >
-              Partner inquiry
-            </Link>
-          </div>
-        </div>
-        <div className="rounded-lg border border-line bg-panel/88 p-5 shadow-2xl backdrop-blur">
-          <div className="grid gap-3 sm:grid-cols-2">
+        <Stagger className="min-w-0" delay={0.08}>
+          <StaggerItem>
+            <p className="mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-lime/35 bg-lime/10 px-3 py-2 text-xs font-bold text-lime sm:px-4 sm:text-sm">
+              <Sparkles className="size-4" />
+              AI Product Founder &amp; Software Engineer
+            </p>
+          </StaggerItem>
+          <StaggerItem>
+            <h1 className="max-w-4xl text-balance font-display text-[clamp(4rem,19vw,5.7rem)] leading-[0.84] tracking-normal text-lime sm:text-[8.5rem] lg:text-[11rem]">
+              Alexandru Mihacea
+            </h1>
+          </StaggerItem>
+          <StaggerItem>
+            <p className="mt-6 max-w-2xl text-lg leading-7 text-white/72 sm:mt-7 sm:text-2xl sm:leading-8">
+              I build focused software businesses across AI, vertical marketplaces, logistics, and high-stakes engineering.
+            </p>
+          </StaggerItem>
+          <StaggerItem>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <Link
+                href="#projects"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-lime px-5 py-3 text-sm font-black text-ink transition hover:scale-[1.02] sm:w-auto"
+              >
+                View projects
+                <ArrowUpRight className="size-4" />
+              </Link>
+              <Link
+                href="#contact"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-white/15 px-5 py-3 text-sm font-bold text-white transition hover:border-lime hover:text-lime sm:w-auto"
+              >
+                Partner inquiry
+              </Link>
+            </div>
+          </StaggerItem>
+        </Stagger>
+        <Reveal direction="left" delay={0.18} className="rounded-lg border border-line bg-panel/88 p-5 shadow-2xl backdrop-blur">
+          <Stagger className="grid gap-3 sm:grid-cols-2" delay={0.22}>
             {[
               ["AI products", "Prompt systems, LLM flows, generation UX"],
               ["Marketplaces", "Liquidity, pricing, booking, trust"],
               ["Agency scale", "50+ shipped digital projects"],
               ["Defense software", "Reliability under strict constraints"],
             ].map(([title, body]) => (
-              <div key={title} className="rounded-md border border-white/10 bg-white/[0.04] p-4">
-                <p className="font-bold text-lime">{title}</p>
-                <p className="mt-2 text-sm leading-5 text-muted">{body}</p>
-              </div>
+              <StaggerItem key={title}>
+                <HoverLift className="h-full rounded-md border border-white/10 bg-white/[0.04] p-4">
+                  <p className="font-bold text-lime">{title}</p>
+                  <p className="mt-2 text-sm leading-5 text-muted">{body}</p>
+                </HoverLift>
+              </StaggerItem>
             ))}
-          </div>
-        </div>
+          </Stagger>
+        </Reveal>
       </div>
     </section>
   );
@@ -90,23 +101,25 @@ function Hero() {
 function Metrics() {
   return (
     <AnimatedSection className="mx-auto max-w-7xl px-5 sm:px-8">
-      <div className="grid gap-3 rounded-lg bg-lime p-3 text-ink sm:grid-cols-2 lg:grid-cols-4">
+      <Stagger className="grid gap-3 rounded-lg bg-lime p-3 text-ink sm:grid-cols-2 lg:grid-cols-4">
         {metrics.map((metric) => (
-          <div key={metric.label} className="rounded-md border border-ink/10 bg-ink/[0.06] p-5 [container-type:inline-size]">
-            <p
-              className={`max-w-full overflow-hidden font-display leading-none ${
-                metric.value.length > 5
-                  ? "whitespace-nowrap text-[clamp(2.45rem,16cqw,4.1rem)]"
-                  : "text-[clamp(4.5rem,21vw,6rem)] lg:text-7xl"
-              }`}
-            >
-              {metric.value}
-            </p>
-            <p className="mt-1 text-lg font-black">{metric.label}</p>
-            <p className="mt-3 text-sm font-semibold text-ink/68">{metric.detail}</p>
-          </div>
+          <StaggerItem key={metric.label}>
+            <HoverLift className="h-full rounded-md border border-ink/10 bg-ink/[0.06] p-5 [container-type:inline-size]">
+              <p
+                className={`max-w-full overflow-hidden font-display leading-none ${
+                  metric.value.length > 5
+                    ? "whitespace-nowrap text-[clamp(2.45rem,16cqw,4.1rem)]"
+                    : "text-[clamp(4.5rem,21vw,6rem)] lg:text-7xl"
+                }`}
+              >
+                {metric.value}
+              </p>
+              <p className="mt-1 text-lg font-black">{metric.label}</p>
+              <p className="mt-3 text-sm font-semibold text-ink/68">{metric.detail}</p>
+            </HoverLift>
+          </StaggerItem>
         ))}
-      </div>
+      </Stagger>
     </AnimatedSection>
   );
 }
@@ -119,25 +132,27 @@ function Ventures() {
         title="Ventures built around distribution and narrow markets"
         body="The portfolio is intentionally product-led: each venture highlights a market, a distribution angle, and the technical system behind it."
       />
-      <div className="mt-9 grid gap-4 lg:grid-cols-3">
+      <Stagger className="mt-9 grid gap-4 lg:grid-cols-3">
         {ventures.map((venture) => (
-          <article key={venture.title} className="rounded-lg border border-line bg-panel p-6">
-            <p className="text-sm font-bold text-lime">{venture.eyebrow}</p>
-            <h3 className="mt-3 text-3xl font-black text-white">{venture.title}</h3>
-            <p className="mt-4 text-sm leading-6 text-muted">{venture.description}</p>
-            {venture.link ? (
-              <Link
-                href={venture.link}
-                target="_blank"
-                className="mt-6 inline-flex items-center gap-2 text-sm font-black text-lime"
-              >
-                Visit
-                <ArrowUpRight className="size-4" />
-              </Link>
-            ) : null}
-          </article>
+          <StaggerItem key={venture.title}>
+            <HoverLift className="h-full rounded-lg border border-line bg-panel p-6">
+              <p className="text-sm font-bold text-lime">{venture.eyebrow}</p>
+              <h3 className="mt-3 text-3xl font-black text-white">{venture.title}</h3>
+              <p className="mt-4 text-sm leading-6 text-muted">{venture.description}</p>
+              {venture.link ? (
+                <Link
+                  href={venture.link}
+                  target="_blank"
+                  className="mt-6 inline-flex items-center gap-2 text-sm font-black text-lime"
+                >
+                  Visit
+                  <ArrowUpRight className="size-4" />
+                </Link>
+              ) : null}
+            </HoverLift>
+          </StaggerItem>
         ))}
-      </div>
+      </Stagger>
     </AnimatedSection>
   );
 }
@@ -154,11 +169,15 @@ function Projects() {
           Concise cards first, deeper case studies one click away. Built for scanning, not CV-reading.
         </p>
       </div>
-      <div className="mt-5 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      <Stagger className="mt-5 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
         {projects.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
+          <StaggerItem key={project.slug}>
+            <HoverLift>
+              <ProjectCard project={project} />
+            </HoverLift>
+          </StaggerItem>
         ))}
-      </div>
+      </Stagger>
     </AnimatedSection>
   );
 }
@@ -210,12 +229,14 @@ function Timeline() {
         body="A chronological path through the work that shaped how I build: applied research, high-stakes engineering, agency execution, then product ventures."
         compact
       />
-      <ol className="relative mt-9 space-y-5">
+      <Stagger className="relative mt-9 space-y-5">
         <span className="absolute bottom-10 left-7 top-7 w-px bg-gradient-to-b from-lime via-lime/45 to-transparent" />
         {roadmap.map((item, index) => (
-          <RoadmapItem key={item.title} index={index} isLast={index === roadmap.length - 1} {...item} />
+          <StaggerItem key={item.title}>
+            <RoadmapItem index={index} isLast={index === roadmap.length - 1} {...item} />
+          </StaggerItem>
         ))}
-      </ol>
+      </Stagger>
     </AnimatedSection>
   );
 }
@@ -231,19 +252,26 @@ function Contact() {
             Open to venture conversations, product partnerships, and engineering-led opportunities where speed and precision both matter.
           </p>
         </div>
-        <div className="flex flex-wrap gap-3 lg:justify-end">
+        <Stagger className="flex flex-wrap gap-3 lg:justify-end" delay={0.1}>
+          <StaggerItem>
           <Link href="mailto:alexmihacea@gmail.com" className="inline-flex items-center gap-2 rounded-lg bg-ink px-5 py-3 text-sm font-black text-lime">
             <Mail className="size-4" />
             Personal Email
           </Link>
+          </StaggerItem>
+          <StaggerItem>
           <Link href="mailto:alex@secortex.com" className="inline-flex items-center gap-2 rounded-lg border border-ink/25 px-5 py-3 text-sm font-black">
             <Mail className="size-4" />
             Work Email
           </Link>
+          </StaggerItem>
+          <StaggerItem>
           <Link href="https://github.com/AlexandruMihacea" target="_blank" className="inline-flex items-center gap-2 rounded-lg border border-ink/25 px-5 py-3 text-sm font-black">
             <Github className="size-4" />
             GitHub
           </Link>
+          </StaggerItem>
+          <StaggerItem>
           <Link
             href="https://www.linkedin.com/in/alexandru-mihacea-1355341b0/"
             target="_blank"
@@ -252,7 +280,8 @@ function Contact() {
             <Linkedin className="size-4" />
             LinkedIn
           </Link>
-        </div>
+          </StaggerItem>
+        </Stagger>
       </div>
     </AnimatedSection>
   );
@@ -300,7 +329,7 @@ function RoadmapItem({
   description: string;
 }) {
   return (
-    <li className="relative flex gap-5">
+    <div className="relative flex gap-5">
       <div className="relative z-10 flex w-14 shrink-0 flex-col items-center">
         <div className="flex size-14 items-center justify-center rounded-lg border border-lime/50 bg-lime text-ink shadow-glow">
           {icon}
@@ -323,6 +352,6 @@ function RoadmapItem({
         </div>
         <p className="mt-4 max-w-4xl text-sm leading-6 text-muted">{description}</p>
       </article>
-    </li>
+    </div>
   );
 }
