@@ -52,7 +52,7 @@ function BrowserShell({
 }) {
   return (
     <div
-      className={`absolute left-1/2 top-1/2 w-[82%] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-lg border border-white/10 bg-[#0b0f16]/94 shadow-2xl ${
+      className={`liquid-glass absolute left-1/2 top-1/2 w-[82%] -translate-x-1/2 -translate-y-1/2 rounded-lg ${
         isHero ? "min-h-72" : "min-h-36"
       }`}
     >

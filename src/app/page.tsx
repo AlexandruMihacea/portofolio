@@ -20,7 +20,7 @@ import { metrics, projects, ventures } from "@/lib/portfolio-data";
 
 export default function Home() {
   return (
-    <main className="min-h-screen overflow-hidden bg-ink text-white">
+    <main className="min-h-screen overflow-x-clip bg-ink text-white">
       <SiteHeader />
       <Hero />
       <Metrics />
@@ -43,7 +43,7 @@ function Hero() {
       <div className="relative z-10 grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
         <Stagger className="min-w-0" delay={0.08}>
           <StaggerItem>
-            <p className="mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-lime/35 bg-lime/10 px-3 py-2 text-xs font-bold text-lime sm:px-4 sm:text-sm">
+            <p className="liquid-button mb-5 inline-flex max-w-full items-center gap-2 rounded-full px-3 py-2 text-xs font-bold text-lime sm:px-4 sm:text-sm">
               <Sparkles className="size-4" />
               AI Product Founder &amp; Software Engineer
             </p>
@@ -62,21 +62,21 @@ function Hero() {
             <div className="mt-9 flex flex-wrap gap-3">
               <Link
                 href="#projects"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-lime px-5 py-3 text-sm font-black text-ink transition hover:scale-[1.02] sm:w-auto"
+                className="liquid-glass-lime inline-flex w-full items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-black text-ink transition hover:scale-[1.02] sm:w-auto"
               >
                 View projects
                 <ArrowUpRight className="size-4" />
               </Link>
               <Link
                 href="#contact"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-white/15 px-5 py-3 text-sm font-bold text-white transition hover:border-lime hover:text-lime sm:w-auto"
+                className="liquid-button inline-flex w-full items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-bold text-white transition hover:border-lime/60 hover:text-lime sm:w-auto"
               >
                 Partner inquiry
               </Link>
             </div>
           </StaggerItem>
         </Stagger>
-        <Reveal direction="left" delay={0.18} className="rounded-lg border border-line bg-panel/88 p-5 shadow-2xl backdrop-blur">
+        <Reveal direction="left" delay={0.18} className="liquid-glass rounded-lg p-5">
           <Stagger className="grid gap-3 sm:grid-cols-2" delay={0.22}>
             {[
               ["AI products", "Prompt systems, LLM flows, generation UX"],
@@ -85,7 +85,7 @@ function Hero() {
               ["Defense software", "Reliability under strict constraints"],
             ].map(([title, body]) => (
               <StaggerItem key={title}>
-                <HoverLift className="h-full rounded-md border border-white/10 bg-white/[0.04] p-4">
+                <HoverLift className="liquid-glass-soft h-full rounded-md p-4">
                   <p className="font-bold text-lime">{title}</p>
                   <p className="mt-2 text-sm leading-5 text-muted">{body}</p>
                 </HoverLift>
@@ -101,10 +101,10 @@ function Hero() {
 function Metrics() {
   return (
     <AnimatedSection className="mx-auto max-w-7xl px-5 sm:px-8">
-      <Stagger className="grid gap-3 rounded-lg bg-lime p-3 text-ink sm:grid-cols-2 lg:grid-cols-4">
+      <Stagger className="liquid-glass-lime grid gap-3 rounded-lg p-3 text-ink sm:grid-cols-2 lg:grid-cols-4">
         {metrics.map((metric) => (
           <StaggerItem key={metric.label}>
-            <HoverLift className="h-full rounded-md border border-ink/10 bg-ink/[0.06] p-5 [container-type:inline-size]">
+            <HoverLift className="h-full rounded-md border border-ink/10 bg-ink/[0.07] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.22)] [container-type:inline-size]">
               <p
                 className={`max-w-full overflow-hidden font-display leading-none ${
                   metric.value.length > 5
@@ -135,7 +135,7 @@ function Ventures() {
       <Stagger className="mt-9 grid gap-4 lg:grid-cols-3">
         {ventures.map((venture) => (
           <StaggerItem key={venture.title}>
-            <HoverLift className="h-full rounded-lg border border-line bg-panel p-6">
+            <HoverLift className="liquid-glass-soft h-full rounded-lg p-6">
               <p className="text-sm font-bold text-lime">{venture.eyebrow}</p>
               <h3 className="mt-3 text-3xl font-black text-white">{venture.title}</h3>
               <p className="mt-4 text-sm leading-6 text-muted">{venture.description}</p>
@@ -160,7 +160,7 @@ function Ventures() {
 function Projects() {
   return (
     <AnimatedSection id="projects" className="mx-auto max-w-7xl px-5 pb-20 sm:px-8">
-      <div className="flex flex-col gap-6 rounded-lg bg-panel px-5 py-6 sm:flex-row sm:items-end sm:justify-between sm:px-8">
+      <div className="liquid-glass flex flex-col gap-6 rounded-lg px-5 py-6 sm:flex-row sm:items-end sm:justify-between sm:px-8">
         <div>
           <p className="text-sm font-bold uppercase tracking-[0.26em] text-lime">Selected work</p>
           <h2 className="mt-2 font-display text-6xl leading-none text-white sm:text-8xl">Projects</h2>
@@ -169,10 +169,10 @@ function Projects() {
           Concise cards first, deeper case studies one click away. Built for scanning, not CV-reading.
         </p>
       </div>
-      <Stagger className="mt-5 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      <Stagger className="mt-5 grid auto-rows-fr gap-5 md:grid-cols-2 xl:grid-cols-3">
         {projects.map((project) => (
-          <StaggerItem key={project.slug}>
-            <HoverLift>
+          <StaggerItem key={project.slug} className="h-full">
+            <HoverLift className="h-full">
               <ProjectCard project={project} />
             </HoverLift>
           </StaggerItem>
@@ -244,7 +244,7 @@ function Timeline() {
 function Contact() {
   return (
     <AnimatedSection id="contact" className="mx-auto max-w-7xl px-5 pb-10 sm:px-8">
-      <div className="grid gap-8 rounded-lg bg-lime p-6 text-ink sm:p-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+      <div className="liquid-glass-lime grid gap-8 rounded-lg p-6 text-ink sm:p-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
         <div>
           <p className="text-sm font-black uppercase tracking-[0.26em]">Contact</p>
           <h2 className="mt-3 font-display text-7xl leading-none sm:text-9xl">Build the next focused product</h2>
@@ -254,32 +254,32 @@ function Contact() {
         </div>
         <Stagger className="flex flex-wrap gap-3 lg:justify-end" delay={0.1}>
           <StaggerItem>
-          <Link href="mailto:alexmihacea@gmail.com" className="inline-flex items-center gap-2 rounded-lg bg-ink px-5 py-3 text-sm font-black text-lime">
-            <Mail className="size-4" />
-            Personal Email
-          </Link>
+            <Link href="mailto:alexmihacea@gmail.com" className="inline-flex items-center gap-2 rounded-lg bg-ink px-5 py-3 text-sm font-black text-lime shadow-[inset_0_1px_0_rgba(255,255,255,0.14)]">
+              <Mail className="size-4" />
+              Personal Email
+            </Link>
           </StaggerItem>
           <StaggerItem>
-          <Link href="mailto:alex@secortex.com" className="inline-flex items-center gap-2 rounded-lg border border-ink/25 px-5 py-3 text-sm font-black">
-            <Mail className="size-4" />
-            Work Email
-          </Link>
+            <Link href="mailto:alex@secortex.com" className="inline-flex items-center gap-2 rounded-lg border border-ink/25 bg-white/20 px-5 py-3 text-sm font-black backdrop-blur">
+              <Mail className="size-4" />
+              Work Email
+            </Link>
           </StaggerItem>
           <StaggerItem>
-          <Link href="https://github.com/AlexandruMihacea" target="_blank" className="inline-flex items-center gap-2 rounded-lg border border-ink/25 px-5 py-3 text-sm font-black">
-            <Github className="size-4" />
-            GitHub
-          </Link>
+            <Link href="https://github.com/AlexandruMihacea" target="_blank" className="inline-flex items-center gap-2 rounded-lg border border-ink/25 bg-white/20 px-5 py-3 text-sm font-black backdrop-blur">
+              <Github className="size-4" />
+              GitHub
+            </Link>
           </StaggerItem>
           <StaggerItem>
-          <Link
-            href="https://www.linkedin.com/in/alexandru-mihacea-1355341b0/"
-            target="_blank"
-            className="inline-flex items-center gap-2 rounded-lg border border-ink/25 px-5 py-3 text-sm font-black"
-          >
-            <Linkedin className="size-4" />
-            LinkedIn
-          </Link>
+            <Link
+              href="https://www.linkedin.com/in/alexandru-mihacea-1355341b0/"
+              target="_blank"
+              className="inline-flex items-center gap-2 rounded-lg border border-ink/25 bg-white/20 px-5 py-3 text-sm font-black backdrop-blur"
+            >
+              <Linkedin className="size-4" />
+              LinkedIn
+            </Link>
           </StaggerItem>
         </Stagger>
       </div>
@@ -331,14 +331,14 @@ function RoadmapItem({
   return (
     <div className="relative flex gap-5">
       <div className="relative z-10 flex w-14 shrink-0 flex-col items-center">
-        <div className="flex size-14 items-center justify-center rounded-lg border border-lime/50 bg-lime text-ink shadow-glow">
+        <div className="liquid-glass-lime flex size-14 items-center justify-center rounded-lg text-ink">
           {icon}
         </div>
         {!isLast ? <ArrowDown className="mt-3 size-5 text-lime" /> : null}
       </div>
       <article
-        className={`flex-1 rounded-lg border bg-panel p-5 transition ${
-          isLast ? "border-lime/55 shadow-glow" : "border-line"
+        className={`liquid-glass-soft flex-1 rounded-lg p-5 transition ${
+          isLast ? "border-lime/55 shadow-glow" : ""
         }`}
       >
         <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
@@ -346,7 +346,7 @@ function RoadmapItem({
             <p className="text-sm font-bold text-lime">{meta}</p>
             <h3 className="mt-1 text-2xl font-black text-white">{title}</h3>
           </div>
-          <span className="rounded-full border border-white/10 px-3 py-1 text-xs font-black text-white/50">
+          <span className="liquid-button rounded-full px-3 py-1 text-xs font-black text-white/60">
             {String(index + 1).padStart(2, "0")}
           </span>
         </div>

@@ -11,10 +11,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <Link
       href={`/projects/${project.slug}`}
-      className="group overflow-hidden rounded-lg border border-line bg-panel transition duration-300 hover:-translate-y-1 hover:border-lime/60 hover:shadow-glow"
+      className="liquid-glass-soft group flex h-full flex-col rounded-lg transition duration-300 hover:-translate-y-1 hover:border-lime/60 hover:shadow-glow"
     >
       <ProjectMockup project={project} />
-      <div className="space-y-4 p-5">
+      <div className="flex flex-1 flex-col space-y-4 p-5">
         <div>
           <div className="mb-3 flex items-start justify-between gap-4">
             <div>
@@ -25,9 +25,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
           <p className="text-sm leading-6 text-muted">{project.shortDescription}</p>
         </div>
-        <div className="flex flex-wrap gap-2">
+        <div className="mt-auto flex flex-wrap gap-2">
           {project.techStack.slice(0, 3).map((tech) => (
-            <span key={tech} className="rounded-md bg-white/[0.06] px-2.5 py-1 text-xs font-bold text-white/70">
+            <span key={tech} className="rounded-md border border-white/10 bg-white/[0.08] px-2.5 py-1 text-xs font-bold text-white/72 backdrop-blur">
               {tech}
             </span>
           ))}
