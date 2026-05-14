@@ -214,7 +214,7 @@ function Timeline() {
     },
     {
       title: "Seacortex",
-      meta: "Current Venture Studio",
+      meta: "Current Product Company",
       description:
         "Now building and scaling AI-native products through rapid iteration, organic distribution, and disciplined infrastructure choices.",
       icon: <Rocket className="size-5" />,

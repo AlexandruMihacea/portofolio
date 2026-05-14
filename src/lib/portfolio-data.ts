@@ -66,9 +66,9 @@ export const ventures = [
   },
   {
     title: "Seacortex",
-    eyebrow: "AI-native venture studio",
+    eyebrow: "AI-native product company",
     description:
-      "Current operating umbrella for rapid product experiments, distribution-led growth, and applied AI systems built for narrow markets.",
+      "Current company building rapid product experiments, distribution-led growth, and applied AI systems for narrow markets.",
     link: "https://seacortex.com",
   },
 ];
