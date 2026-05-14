@@ -1,5 +1,5 @@
 import type { StaticImageData } from "next/image";
-import maneleImage from "@/assets/manele.io.avif";
+import maneleImage from "@/assets/manele.png";
 import vengencyImage from "@/assets/vengency.com.png";
 import footbudImage from "@/assets/footbud.jpg";
 
@@ -14,6 +14,7 @@ export type Project = {
   accent: string;
   mockup: "audio" | "agency" | "logistics" | "marketplace" | "football";
   image?: StaticImageData;
+  imageFit?: "cover" | "contain";
   links: {
     demo?: string;
     github?: string;
@@ -86,6 +87,7 @@ export const projects: Project[] = [
     accent: "#d5ff3f",
     mockup: "audio",
     image: maneleImage,
+    imageFit: "contain",
     links: {
       demo: "https://manele.io",
     },

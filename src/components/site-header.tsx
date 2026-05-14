@@ -10,7 +10,7 @@ const navItems = [
 export function SiteHeader() {
   return (
     <header className="sticky top-3 z-50 px-3 sm:px-5">
-      <nav className="liquid-glass mx-auto flex max-w-7xl items-center justify-between rounded-full px-4 py-3 sm:px-6">
+      <nav className="liquid-glass mx-auto flex max-w-7xl items-center justify-between rounded-lg px-4 py-3 sm:px-6">
         <Link href="/" className="font-display text-3xl tracking-normal text-lime">
           AM
         </Link>
@@ -22,8 +22,8 @@ export function SiteHeader() {
           ))}
         </div>
         <Link
-          href="#contact"
-          className="liquid-button rounded-full px-4 py-2 text-sm font-bold text-lime transition hover:border-lime/60 hover:text-white"
+          href="/#contact"
+          className="liquid-button rounded-lg px-4 py-2 text-sm font-bold text-lime transition hover:border-lime/60 hover:text-white"
         >
           Let&apos;s Talk
         </Link>

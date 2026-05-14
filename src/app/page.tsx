@@ -230,7 +230,7 @@ function Timeline() {
         compact
       />
       <Stagger className="relative mt-9 space-y-5">
-        <span className="absolute bottom-10 left-7 top-7 w-px bg-gradient-to-b from-lime via-lime/45 to-transparent" />
+        <span className="absolute bottom-10 left-7 top-7 w-px -translate-x-1/2 bg-gradient-to-b from-lime via-lime/45 to-transparent" />
         {roadmap.map((item, index) => (
           <StaggerItem key={item.title}>
             <RoadmapItem index={index} isLast={index === roadmap.length - 1} {...item} />
@@ -254,15 +254,9 @@ function Contact() {
         </div>
         <Stagger className="flex flex-wrap gap-3 lg:justify-end" delay={0.1}>
           <StaggerItem>
-            <Link href="mailto:alexmihacea@gmail.com" className="inline-flex items-center gap-2 rounded-lg bg-ink px-5 py-3 text-sm font-black text-lime shadow-[inset_0_1px_0_rgba(255,255,255,0.14)]">
+            <Link href="mailto:alex@secortex.com" className="inline-flex items-center gap-2 rounded-lg bg-ink px-5 py-3 text-sm font-black text-lime shadow-[inset_0_1px_0_rgba(255,255,255,0.14)]">
               <Mail className="size-4" />
-              Personal Email
-            </Link>
-          </StaggerItem>
-          <StaggerItem>
-            <Link href="mailto:alex@secortex.com" className="inline-flex items-center gap-2 rounded-lg border border-ink/25 bg-white/20 px-5 py-3 text-sm font-black backdrop-blur">
-              <Mail className="size-4" />
-              Work Email
+              Email
             </Link>
           </StaggerItem>
           <StaggerItem>
