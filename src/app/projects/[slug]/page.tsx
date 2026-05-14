@@ -82,7 +82,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   className="liquid-glass-lime inline-flex items-center gap-2 rounded-lg px-5 py-3 text-sm font-black text-ink transition hover:scale-[1.02]"
                 >
                   <Monitor className="size-4" />
-                  Demo
+                  {project.links.demoLabel ?? "Visit site"}
                 </Link>
               ) : null}
               {project.links.github ? (

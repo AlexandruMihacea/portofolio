@@ -17,6 +17,7 @@ export type Project = {
   imageFit?: "cover" | "contain";
   links: {
     demo?: string;
+    demoLabel?: string;
     github?: string;
   };
   caseStudy: {
@@ -90,6 +91,7 @@ export const projects: Project[] = [
     imageFit: "contain",
     links: {
       demo: "https://manele.io",
+      demoLabel: "Open product",
     },
     caseStudy: {
       problem:
@@ -146,6 +148,7 @@ export const projects: Project[] = [
     image: vengencyImage,
     links: {
       demo: "https://vengency.com",
+      demoLabel: "Visit agency site",
     },
     caseStudy: {
       problem:

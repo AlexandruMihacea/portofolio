@@ -28,7 +28,7 @@ export default function Home() {
       <Projects />
       <Timeline />
       <Contact />
-      <SiteFooter />
+      <SiteFooter showContactLinks={false} />
     </main>
   );
 }
@@ -254,13 +254,13 @@ function Contact() {
         </div>
         <Stagger className="flex flex-wrap gap-3 lg:justify-end" delay={0.1}>
           <StaggerItem>
-            <Link href="mailto:alex@secortex.com" className="inline-flex items-center gap-2 rounded-lg bg-ink px-5 py-3 text-sm font-black text-lime shadow-[inset_0_1px_0_rgba(255,255,255,0.14)]">
+            <Link href="mailto:alex@secortex.com" className="inline-flex items-center gap-2 rounded-lg bg-ink px-5 py-3 text-sm font-black text-lime shadow-[inset_0_1px_0_rgba(255,255,255,0.14)] transition duration-200 hover:-translate-y-1 hover:bg-[#090909] hover:shadow-[0_16px_40px_rgba(19,19,19,0.24),inset_0_1px_0_rgba(255,255,255,0.18)]">
               <Mail className="size-4" />
               Email
             </Link>
           </StaggerItem>
           <StaggerItem>
-            <Link href="https://github.com/AlexandruMihacea" target="_blank" className="inline-flex items-center gap-2 rounded-lg border border-ink/25 bg-white/20 px-5 py-3 text-sm font-black backdrop-blur">
+            <Link href="https://github.com/AlexandruMihacea" target="_blank" className="inline-flex items-center gap-2 rounded-lg border border-ink/25 bg-white/20 px-5 py-3 text-sm font-black backdrop-blur transition duration-200 hover:-translate-y-1 hover:border-ink/45 hover:bg-white/36 hover:shadow-[0_16px_40px_rgba(19,19,19,0.16)]">
               <Github className="size-4" />
               GitHub
             </Link>
@@ -269,7 +269,7 @@ function Contact() {
             <Link
               href="https://www.linkedin.com/in/alexandru-mihacea-1355341b0/"
               target="_blank"
-              className="inline-flex items-center gap-2 rounded-lg border border-ink/25 bg-white/20 px-5 py-3 text-sm font-black backdrop-blur"
+              className="inline-flex items-center gap-2 rounded-lg border border-ink/25 bg-white/20 px-5 py-3 text-sm font-black backdrop-blur transition duration-200 hover:-translate-y-1 hover:border-ink/45 hover:bg-white/36 hover:shadow-[0_16px_40px_rgba(19,19,19,0.16)]"
             >
               <Linkedin className="size-4" />
               LinkedIn
