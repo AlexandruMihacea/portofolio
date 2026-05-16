@@ -1,6 +1,7 @@
 import type { StaticImageData } from "next/image";
-import maneleImage from "@/assets/manele.io.avif";
+import maneleImage from "@/assets/manele.png";
 import vengencyImage from "@/assets/vengency.com.png";
+import footbudImage from "@/assets/footbud.jpg";
 
 export type Project = {
   title: string;
@@ -13,8 +14,10 @@ export type Project = {
   accent: string;
   mockup: "audio" | "agency" | "logistics" | "marketplace" | "football";
   image?: StaticImageData;
+  imageFit?: "cover" | "contain";
   links: {
     demo?: string;
+    demoLabel?: string;
     github?: string;
   };
   caseStudy: {
@@ -65,9 +68,9 @@ export const ventures = [
   },
   {
     title: "Seacortex",
-    eyebrow: "AI-native venture studio",
+    eyebrow: "AI-native product company",
     description:
-      "Current operating umbrella for rapid product experiments, distribution-led growth, and applied AI systems built for narrow markets.",
+      "Current company building rapid product experiments, distribution-led growth, and applied AI systems for narrow markets.",
     link: "https://seacortex.com",
   },
 ];
@@ -85,8 +88,10 @@ export const projects: Project[] = [
     accent: "#d5ff3f",
     mockup: "audio",
     image: maneleImage,
+    imageFit: "contain",
     links: {
       demo: "https://manele.io",
+      demoLabel: "Open product",
     },
     caseStudy: {
       problem:
@@ -100,6 +105,63 @@ export const projects: Project[] = [
       ],
       outcome:
         "Reached 20k+ users without a marketing budget, proving both demand and distribution efficiency.",
+    },
+  },
+  {
+    title: "Footbud",
+    slug: "footbud",
+    category: "Mobile Marketplace",
+    shortDescription:
+      "Marketplace for amateur football that helps solo players and small groups organize local matches.",
+    role: "Co-founder and product architect",
+    impact: "Solved local match liquidity around players and bookings",
+    techStack: ["Mobile app", "Matchmaking", "Bookings", "Marketplace logic"],
+    accent: "#1db954",
+    mockup: "football",
+    image: footbudImage,
+    links: {},
+    caseStudy: {
+      problem:
+        "Amateur football players struggle to find enough people, available pitches, and reliable coordination for local matches.",
+      solution:
+        "Architected social matchmaking and booking flows that connect solo players, small groups, and available games.",
+      highlights: [
+        "Designed the liquidity logic around open spots, groups, and recurring play.",
+        "Connected social intent with concrete booking workflows.",
+        "Balanced marketplace density with a simple mobile-first experience.",
+      ],
+      outcome:
+        "A product concept and build focused on reducing friction in a highly local, habit-driven marketplace.",
+    },
+  },
+  {
+    title: "Vengency",
+    slug: "vengency",
+    category: "Agency Execution",
+    shortDescription:
+      "Creative tech agency scaled through fast delivery of web development, branding, and graphic design projects.",
+    role: "Founder, operator, delivery lead",
+    impact: "50+ client projects",
+    techStack: ["Web development", "Branding", "Design systems", "Deployment"],
+    accent: "#ff7a3f",
+    mockup: "agency",
+    image: vengencyImage,
+    links: {
+      demo: "https://vengency.com",
+      demoLabel: "Visit agency site",
+    },
+    caseStudy: {
+      problem:
+        "Small businesses needed fast, end-to-end digital execution without coordinating separate brand, design, and development vendors.",
+      solution:
+        "Built an agency delivery system covering lead generation, discovery, visual identity, web production, and launch.",
+      highlights: [
+        "Managed the full lifecycle from sales to deployment.",
+        "Delivered websites, graphics, and brand assets across different industries.",
+        "Built a repeatable operating rhythm for high-volume client work.",
+      ],
+      outcome:
+        "Delivered 50+ projects, sharpening both commercial judgment and execution speed before moving deeper into own products.",
     },
   },
   {
@@ -154,61 +216,6 @@ export const projects: Project[] = [
       ],
       outcome:
         "A functional thesis product for a difficult vertical where clarity and trust matter more than feature volume.",
-    },
-  },
-  {
-    title: "Footbud",
-    slug: "footbud",
-    category: "Mobile Marketplace",
-    shortDescription:
-      "Marketplace for amateur football that helps solo players and small groups organize local matches.",
-    role: "Co-founder and product architect",
-    impact: "Solved local match liquidity around players and bookings",
-    techStack: ["Mobile app", "Matchmaking", "Bookings", "Marketplace logic"],
-    accent: "#1db954",
-    mockup: "football",
-    links: {},
-    caseStudy: {
-      problem:
-        "Amateur football players struggle to find enough people, available pitches, and reliable coordination for local matches.",
-      solution:
-        "Architected social matchmaking and booking flows that connect solo players, small groups, and available games.",
-      highlights: [
-        "Designed the liquidity logic around open spots, groups, and recurring play.",
-        "Connected social intent with concrete booking workflows.",
-        "Balanced marketplace density with a simple mobile-first experience.",
-      ],
-      outcome:
-        "A product concept and build focused on reducing friction in a highly local, habit-driven marketplace.",
-    },
-  },
-  {
-    title: "Vengency",
-    slug: "vengency",
-    category: "Agency Execution",
-    shortDescription:
-      "Creative tech agency scaled through fast delivery of web development, branding, and graphic design projects.",
-    role: "Founder, operator, delivery lead",
-    impact: "50+ client projects",
-    techStack: ["Web development", "Branding", "Design systems", "Deployment"],
-    accent: "#ff7a3f",
-    mockup: "agency",
-    image: vengencyImage,
-    links: {
-      demo: "https://vengency.com",
-    },
-    caseStudy: {
-      problem:
-        "Small businesses needed fast, end-to-end digital execution without coordinating separate brand, design, and development vendors.",
-      solution:
-        "Built an agency delivery system covering lead generation, discovery, visual identity, web production, and launch.",
-      highlights: [
-        "Managed the full lifecycle from sales to deployment.",
-        "Delivered websites, graphics, and brand assets across different industries.",
-        "Built a repeatable operating rhythm for high-volume client work.",
-      ],
-      outcome:
-        "Delivered 50+ projects, sharpening both commercial judgment and execution speed before moving deeper into own products.",
     },
   },
 ];

@@ -3,14 +3,20 @@ import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Alexandru Mihacea | AI-Native Product Builder",
+  title: "Alexandru Mihacea | AI Product Founder & Software Engineer",
   description:
-    "Portfolio of Alexandru Mihacea, an AI-native product builder, agency founder, and software engineer working across vertical marketplaces, logistics, and scalable consumer products.",
+    "AI product founder and software engineer building products across AI, vertical marketplaces, logistics, and scalable consumer platforms.",
   openGraph: {
-    title: "Alexandru Mihacea | Portfolio",
+    title: "Alexandru Mihacea | AI Product Founder & Software Engineer",
     description:
       "AI-native product builder with 20k+ organic users, 50+ agency projects, and mission-critical software engineering experience.",
     type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Alexandru Mihacea | AI Product Founder & Software Engineer",
+    description:
+      "AI-native product builder with 20k+ organic users, 50+ agency projects, and mission-critical software engineering experience.",
   },
 };
 

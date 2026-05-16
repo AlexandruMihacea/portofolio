@@ -2,7 +2,7 @@ import type { Project } from "@/lib/portfolio-data";
 import Image from "next/image";
 
 type ProjectMockupProps = {
-  project: Pick<Project, "title" | "mockup" | "accent" | "category" | "image">;
+  project: Pick<Project, "title" | "mockup" | "accent" | "category" | "image" | "imageFit">;
   size?: "card" | "hero";
 };
 
@@ -23,7 +23,7 @@ export function ProjectMockup({ project, size = "card" }: ProjectMockupProps) {
           alt=""
           fill
           sizes={isHero ? "(min-width: 1024px) 55vw, 100vw" : "(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"}
-          className="object-cover"
+          className={isHero || project.imageFit === "contain" ? "object-contain" : "object-cover"}
           priority={isHero}
         />
       ) : null}
@@ -52,7 +52,7 @@ function BrowserShell({
 }) {
   return (
     <div
-      className={`absolute left-1/2 top-1/2 w-[82%] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-lg border border-white/10 bg-[#0b0f16]/94 shadow-2xl ${
+      className={`liquid-glass absolute left-1/2 top-1/2 w-[82%] -translate-x-1/2 -translate-y-1/2 rounded-lg ${
         isHero ? "min-h-72" : "min-h-36"
       }`}
     >

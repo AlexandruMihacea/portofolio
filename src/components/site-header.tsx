@@ -9,8 +9,8 @@ const navItems = [
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-ink/82 backdrop-blur-xl">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
+    <header className="sticky top-3 z-50 px-3 sm:px-5">
+      <nav className="liquid-glass mx-auto flex max-w-7xl items-center justify-between rounded-lg px-4 py-3 sm:px-6">
         <Link href="/" className="font-display text-3xl tracking-normal text-lime">
           AM
         </Link>
@@ -22,8 +22,8 @@ export function SiteHeader() {
           ))}
         </div>
         <Link
-          href="#contact"
-          className="rounded-lg border border-lime px-4 py-2 text-sm font-bold text-lime transition hover:bg-lime hover:text-ink"
+          href="/#contact"
+          className="liquid-button rounded-lg px-4 py-2 text-sm font-bold text-lime transition hover:border-lime/60 hover:text-white"
         >
           Let&apos;s Talk
         </Link>
